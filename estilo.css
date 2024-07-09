@@ -1,0 +1,37 @@
+:root{
+    --lime-300: #bef264;
+    --lime-950: #1a2e05;
+    --zinc-50: #fafafa;
+    --zinc-100: #fafaf5;
+    --zinc-400: #a1a1aa;
+    --zinc-500: #71717a;
+    --zinc-700: #3f3f46;
+    --zinc-800: #27272a;
+    --zinc-900: #18181b;
+    --zinc-950: #09090e;
+  
+    /*fontes*/
+    --font: 'Inter';
+    --h-lg: 32px;
+    --h-sm: 24px;
+    --body-md: 16px;
+    --body-sm: 14px;
+    --button: 16px;
+  }
+  
+  html{
+    background-color: var(--zinc-950);
+    color: var(--zinc-100);
+    font-family: var(--font);
+  }
+  button{
+    background-color: var(--lime-300);
+    border-radius: 8px;
+    font-size: var(--button);
+    color: var(--lime-950);
+  }
+  input{
+    background-color: var(--zinc-900);
+    padding: 16px;
+  }
+  
