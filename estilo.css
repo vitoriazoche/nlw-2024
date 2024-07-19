@@ -12,43 +12,195 @@
   
     /*fontes*/
     --font: 'Inter';
+
+    /*tamanhos*/
     --h-lg: 32px;
     --h-sm: 24px;
     --body-md: 16px;
     --body-sm: 14px;
     --button: 16px;
   }
-  *{
-    margin:0;
-    padding:0;
-  }
-  html, input, select, button, option{
-    background-color: var(--zinc-950);
-    color: var(--zinc-100);
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, input, select, button, option {
     font-family: var(--font);
+    background-color: var(--zinc-950);
+    color: var(--zinc-50);
 
     line-height: 120%;
-    letter-spacing:-0.02em;
-  }
-  body{
-    padding:56px;
-  }
+    letter-spacing: -0.02em;
+}
 
-  /*Mobile*/
-  #app{
+/* app */
+#app {
     padding: 40px 20px;
-    max-width: 360px;
+    max-width: 320px;
     margin: auto;
   }
-  button{
-    background-color: var(--lime-300);
-    border-radius: 8px;
-    font-size: var(--button);
-    color: var(--lime-950);
-    padding: 12px 16px;
-  }
-  input{
-    background-color: var(--zinc-900);
-    padding: 16px;
+  
+  
+  /* form */
+  #place {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    padding: 22px 16px;
+  
+    font-size: var(--body-sm);
+    margin-bottom:32px;
   }
   
+  input, select {
+    all: unset;
+  }
+  
+  input, select, button {
+    width: 100%;
+  }
+  
+  .fields {
+    display: grid;
+    gap: 8px;
+  }
+  
+  .field-wrapper {
+    padding: 18px;
+    background-color: var(--zinc-950);
+    border: 1px solid var(--zinc-800);
+    border-radius: 8px;
+  
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .field-wrapper:focus-within {
+    outline: 2px solid var(--lime-300);
+  }
+  
+  button {
+    margin-top: 12px;
+    border: none;
+    padding: 12px 20px;
+    background-color: var(--lime-300);
+    border-radius: 8px;
+  
+    font-weight: 500;
+    font-size: 16px;
+  
+    color: #132F00;
+    cursor: pointer;
+  }
+  
+  .card-bg {
+    background: #18181B;
+  
+    box-shadow: 
+      0px 8px 8px rgba(0, 0, 0, 0.1), 
+      0px 4px 4px rgba(0, 0, 0, 0.1), 
+      0px 2px 2px rgba(0, 0, 0, 0.1), 
+      0px 0px 0px 1px rgba(0, 0, 0, 0.1), 
+      inset 0px 0px 0px 1px rgba(255, 255, 255, 0.03), inset 0px 1px 0px rgba(255, 255, 255, 0.03);
+  
+    border-radius: 12px;
+  }
+  
+  /* main */
+  main {
+    margin-top: 32px;
+  }
+  
+  h1 {
+    text-align: center; 
+    font-weight: 600;
+    font-size: 24px;
+  
+    margin-bottom: 24px;
+  }
+  
+  section {
+    display: grid;
+    gap: 10px;
+  }
+  
+  section input[type="checkbox"] {
+    position: absolute;
+    inset: 0;
+  }
+  
+  section .card-bg {
+    position: relative;
+    padding: 10px 16px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  section .card-bg:has(:checked) .active,
+  section .card-bg .inactive {
+    display: block;
+  }
+  
+  section .card-bg:has(:checked) .inactive,
+  section .card-bg .active {
+    display: none;
+  }
+  
+  section .card-bg > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  time {
+    font-size: 14px;
+    color: var(--zinc-400);
+    text-align: right;
+  }
+  
+  time.full {
+    display: none;
+  }
+  
+  @media (width > 1024px) {
+    #app {
+      display: flex;
+      max-width: 960px;
+      gap: 32px;
+    }
+  
+    main {
+      margin-top: 0;
+      flex: 1;
+    }
+  
+    h1 {
+      text-align: left;
+    }
+  
+    time.full {
+      display: block;
+    }
+  
+    time.short {
+      display: none;
+    }
+  }
+  
+  section .card-bg {
+    animation: appear 300ms;
+  }
+  
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+  }
